@@ -38,8 +38,25 @@ namespace CalculatorTest
             //First lets just see what tokens we got.
             foreach(string token in tokens)
             {
-                Console.WriteLine(token);
+                Console.Write(token);
+
+                //Next step should be to figure out if the the tokens are nodes, brackets or expressions...
+                if (BinaryOperations.Keys.Contains(token))
+                {
+                    Console.WriteLine(" : Expression");
+                }
+                else if(token == "(" || token == ")")
+                {
+                    Console.WriteLine(" : Bracket");
+                }
+                //TODO : Lets validate numbers here already.
+                else if (char.IsNumber(token[0]))
+                {
+                    Console.WriteLine(" : Number");
+                }
             }
+
+
 
         }
 
